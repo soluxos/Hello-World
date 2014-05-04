@@ -3,7 +3,7 @@
 I have made a game using c++ whilst using the SDL library I have been trying to keep up to date with c++11 standards as much as possible throughout my code.
 
 ## Story ##
-You are the last remaining ship of the Rebel Alliance and you are tasked with protecting the motherships shield from 50 oncoming tie fights from the empire. You must kill the remaining enemies that will keep coming from unique positions, requiring great reflexes and perfect timing. If you manage to do this and collect the remaining wealth of the Rebellion then you shall be granted a bonus upon completion. Without your help, the rebellion will surely fall.
+You are the last remaining ship of the Rebel Alliance and you are tasked with protecting the motherships shield from 50 oncoming tie fights from the empire. You must kill the remaining enemies that will keep coming from unique positions, requiring great reflexes and perfect timing. If you manage to do this and collect the remaining wealth of the Rebellion then you shall be granted a bonus upon completion. Without your help, the rebellion will surely fall, their shields will last for 2 hits, on the third they will perish.
 It's up to you...
 
 
@@ -20,6 +20,12 @@ This will produce an exutable file called SpaceGame which can be run with the co
 `$ ./SpaceGame`
  
 This must all be done whilst working on the game directory, which for me is cd Hello-World
+
+## Controls##
+
+Left Arrow: Move left
+Right Arrow: Move right
+Space: Shoot
 
 ## Credits ##
 The sprites have been made by me using Photoshop CS6
