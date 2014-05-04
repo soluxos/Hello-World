@@ -39,6 +39,7 @@ private:
   list<shared_ptr<SFAsset> > coins;
   list<shared_ptr<SFAsset> > assetdeleters;
 
+  //integers used in SFApp
   int fire;
   int score = 0;
   int lives = 3;

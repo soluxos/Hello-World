@@ -20,6 +20,7 @@ SFAsset::SFAsset(SFASSETTYPE type) {
   case SFASSET_COIN:
     tmp_surf = IMG_Load("assets/coin.png");
     break;
+  //create shield battier and user image
   case SFASSET_ASSETDELETER:
     tmp_surf = IMG_Load("assets/assetdeleter.png");
     break;
@@ -142,7 +143,7 @@ void SFAsset::SetNotAlive() {
 bool SFAsset::IsAlive() {
   return (SFASSET_DEAD != type);
 }
-
+//detects collision for these objects
 void SFAsset::HandleCollision() {
   if(SFASSET_PROJECTILE == type || SFASSET_ALIEN == type || SFASSET_COIN == type) {
     SetNotAlive();

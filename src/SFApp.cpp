@@ -83,21 +83,21 @@ int SFApp::OnExecute() {
 }
 
 void SFApp::OnUpdateWorld() {
+
   // Update projectile positions
   for(auto p: projectiles) {
     p->GoNorth();
   }
-
+  //Update coin positions
   for(auto c: coins) {
-    c->GoSouthSlow();
+    c->GoSouth();
   }
 
   // Update enemy positions
   for(auto a : aliens) {
     a->GoSouthSlow();
   }
-
-  // Detect collisions
+  // Detect collisions between projectiles and aliens
   for(auto p : projectiles) {
     for(auto a : aliens) {
       if(p->CollidesWith(a)) {
@@ -118,7 +118,7 @@ void SFApp::OnUpdateWorld() {
       }
     }
   }
-
+  //Detect collision between player and coin
   for(auto c : coins) {    
       if(c->CollidesWith(player)) {
         bonus += 10;
@@ -126,7 +126,6 @@ void SFApp::OnUpdateWorld() {
         player->HandleCollision();
       }    
   }
-
   // Collision detection for shields
   for(auto b : assetdeleters) {
     for(auto a : aliens) {
@@ -140,7 +139,7 @@ void SFApp::OnUpdateWorld() {
       }
     }
   }
-
+  //collision detection between aliens and player
   for(auto a : aliens) {    
       if(a->CollidesWith(player)) {
         a->HandleCollision();
@@ -157,7 +156,7 @@ void SFApp::OnUpdateWorld() {
       tmp1.push_back(c);
     }
   }
-
+  //if aliens are less than max then spawn alien to random position
   if(aliens.size() < maxEnemies){
     auto alien = make_shared<SFAsset>(SFASSET_ALIEN);
     auto pos   = Point2(50+rand()%540, 600.0f);
@@ -203,6 +202,7 @@ void SFApp::OnRender() {
   // draw the player
   player->OnRender(surface);
 
+  //check if objects are alive
   for(auto p: projectiles) {
     if(p->IsAlive()) {p->OnRender(surface);}
   }
@@ -214,7 +214,7 @@ void SFApp::OnRender() {
   for(auto c: coins) {
     if(c->IsAlive()) {c->OnRender(surface);};
   }
-
+  //create surface for asset deleter
   for(auto b: assetdeleters) {
     b->OnRender(surface);
   }
